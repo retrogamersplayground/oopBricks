@@ -12,6 +12,5 @@ export class Ball {
         ctx.fillStyle = 'white'; 
         ctx.fill();
         ctx.closePath();
-        console.log(this.ballRadius);
     }
 }

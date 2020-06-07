@@ -14,7 +14,7 @@ function draw(){
     ctx.clearRect(0, 0, canvas.width , canvas.height)
     ball.drawBall();
     paddle.drawPaddle();
-    block.drawBlock();
+    block.blockLoop();
     requestAnimationFrame(draw);
 }
 

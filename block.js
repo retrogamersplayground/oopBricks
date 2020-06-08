@@ -3,11 +3,11 @@ import { ctx } from './index.js';
 import { randomColor } from './index.js';
 
 export class Block {
-    constructor() {
+    constructor() {;
         this.blockY = 0,
         this.width = 40,
-        this.height = 40,
-        this.color = randomColor
+        this.height = 40
+        this.color = Math.floor(Math.random()*16777215).toString(16);
     }
     drawBlock(x) {
         ctx.beginPath();
@@ -19,12 +19,12 @@ export class Block {
         ctx.stroke();
         ctx.closePath();
     }
-    blockLoop() {
-        let x = 0
+    blockLoop(x) {
+        x = 0;
         for(let i = 0; i < canvas.width; i++) {
             this.drawBlock(x);
             x = x + 40;
+            this.color = Math.floor(Math.random()*16777215).toString(16);
         }
     }
 }
-

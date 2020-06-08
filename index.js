@@ -1,15 +1,23 @@
 export let canvas = document.getElementById('canvas');
 export let ctx = canvas.getContext('2d');
 export let randomColor = Math.floor(Math.random()*16777215).toString(16);
+import {Ball} from './ball.js';
+import {Paddle} from './paddle.js';
+import { Block } from './block.js';
+import { Game } from './game.js';
+import { Score } from './score.js';
 
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
+export let ball = new Ball();
+export let paddle = new Paddle();
+export let block = new Block();
+let game = new Game();
+let score = new Score();
+
+//paddle controls
 let leftPressed =  false;
 let rightPressed = false;
-
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;
@@ -28,17 +36,6 @@ function keyUpHandler(e) {
     }
 }
 
-import {Ball} from './ball.js';
-import {Paddle} from './paddle.js';
-import { Block } from './block.js';
-import { Controls } from './controls.js';
-import { Game } from './game.js';
-export let ball = new Ball();
-export let paddle = new Paddle();
-let block = new Block();
-let controls = new Controls();
-let game = new Game();
-
 function draw(){
     ctx.clearRect(0, 0, canvas.width , canvas.height)
     ball.drawBall();
@@ -46,6 +43,7 @@ function draw(){
     game.gameOver();
     paddle.drawPaddle();
     block.blockLoop();
+    score.updateScore();
 
     if(leftPressed && paddle.x > 0){
         paddle.x -= 5;

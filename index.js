@@ -32,14 +32,18 @@ import {Ball} from './ball.js';
 import {Paddle} from './paddle.js';
 import { Block } from './block.js';
 import { Controls } from './controls.js';
-let ball = new Ball();
-let paddle = new Paddle();
+import { Game } from './game.js';
+export let ball = new Ball();
+export let paddle = new Paddle();
 let block = new Block();
 let controls = new Controls();
+let game = new Game();
 
 function draw(){
     ctx.clearRect(0, 0, canvas.width , canvas.height)
     ball.drawBall();
+    ball.bounce();
+    game.gameOver();
     paddle.drawPaddle();
     block.blockLoop();
 
@@ -49,7 +53,7 @@ function draw(){
     else if(rightPressed && paddle.x <= canvas.width - paddle.width){
         paddle.x +=5
     }
-    
+
     requestAnimationFrame(draw);
 }
 

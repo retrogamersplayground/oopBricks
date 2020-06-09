@@ -44,6 +44,7 @@ function draw(){
     paddle.drawPaddle();
     block.blockLoop();
     score.updateScore();
+    score.printScore();
 
     if(leftPressed && paddle.x > 0){
         paddle.x -= 5;

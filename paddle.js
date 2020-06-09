@@ -4,7 +4,7 @@ import { ctx } from './index.js'
 export class Paddle {
     constructor() {
         this.x  = canvas.width/2 - 32.5
-        this.y = canvas.height - 30;
+        this.y = canvas.height - 50;
         this.width = 65;
     }
     drawPaddle(){

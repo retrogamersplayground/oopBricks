@@ -1,8 +1,8 @@
 export let canvas = document.getElementById('canvas');
 export let ctx = canvas.getContext('2d');
 export let randomColor = Math.floor(Math.random()*16777215).toString(16);
-import {Ball} from './ball.js';
-import {Paddle} from './paddle.js';
+import { Ball } from './ball.js';
+import { Paddle } from './paddle.js';
 import { Block } from './block.js';
 import { Game } from './game.js';
 import { Score } from './score.js';
@@ -18,6 +18,7 @@ let leftPressed =  false;
 let rightPressed = false;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;

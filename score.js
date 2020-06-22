@@ -1,6 +1,6 @@
 import { ctx } from './index.js';
 import { ball } from './index.js';
-import { block } from './index.js';
+
 
 export class Score {
     constructor() {

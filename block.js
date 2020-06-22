@@ -1,31 +1,23 @@
 import { canvas } from './index.js';
 import { ctx } from './index.js';
-import { randomColor } from './index.js';
 
 export class Block {
-    constructor() {;
-        this.blockY = 0,
+    constructor(x, y, color) {
+        this.x = x,
+        this.y = y,
         this.width = 40,
-        this.height = 40
-        this.color = Math.floor(Math.random()*16777215).toString(16);
+        this.height = 40,
+        this.color = color
     }
-    drawBlock(x) {
+    drawBlock() {
         ctx.beginPath();
-        ctx.rect(x, this.blockY, this.width, this.height);
+        ctx.rect(this.x, this.y, this.width, this.height);
         ctx.fillStyle = "#" + this.color;
         ctx.fill();
         ctx.lineWidth = 2;
         ctx.strokeStyle = "white";
         ctx.stroke();
         ctx.closePath();
-    }
-    blockLoop(x) {
-        x = 0;
-        for(let i = 0; i < canvas.width; i++) {
-            this.drawBlock(x);
-            x = x + 40;
-            this.color = Math.floor(Math.random()*16777215).toString(16);
-        }
     }
 }
 

@@ -6,7 +6,7 @@ export class Game {
     gameOver() {
         if(ball.y >= canvas.height) {
                 ctx.font = '100px Verdana';
-                ctx.fillText('GAME OVER', 100, canvas.height/2);
+                ctx.fillText('GAME OVER', 100, canvas.height/2 + 30);
         }
     }
 }
